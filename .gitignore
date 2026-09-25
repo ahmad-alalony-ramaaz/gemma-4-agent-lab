@@ -1,0 +1,60 @@
+# Competition Datasets, Artifacts & Raw Tasks
+tasks.jsonl
+*.parquet
+submission.parquet
+submission.zip
+snapshots/
+graphs/
+embeddings/
+wheels/
+data/
+datasets/
+
+# Local Evaluation Results & Logs
+eval_results/
+local_eval/
+run_logs/
+*.log
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Secrets & Credentials
+kaggle.json
+*.pem
+*.key
+secrets/
+.env*
+!.env.example
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Temporary & Scratch Files
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+
+# Whitelist Experiment Cards
+!experiments/**/experiment_card.json
