@@ -97,5 +97,5 @@ This repository does not claim to have built the initial starter agent from scra
 - **Experiment 001 (Baseline)** is derived from the community Kaggle starter notebook:
   > **"Gemma 4 Starter | Inside the Harness + EDA"**  
   > By **Aleksei Provorov**  
-  > *Kaggle Notebook URL*: `[URL placeholder: https://www.kaggle.com/code/leoprovorov/gemma-4-starter-inside-the-harness-eda]`
+  > *Kaggle Notebook URL*: `[https://www.kaggle.com/code/leoprovorov/gemma-4-starter-inside-the-harness-eda]`
 - We gratefully acknowledge Aleksei Provorov's work in providing a clear, modular Analyzer + Coder starter implementation for the competition harness. This repository adopts that starter as the baseline for all subsequent controlled experiments.
