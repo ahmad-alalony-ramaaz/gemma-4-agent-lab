@@ -1,7 +1,10 @@
 # Experiment 001 — Baseline
 
 ## Status
-Submitted to Kaggle, evaluation pending.
+Completed
+
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.06
 
 ## Purpose
 Establish a reproducible baseline before making any optimization.
@@ -77,9 +80,19 @@ The configuration parameters recorded below are taken directly from `experiment_
 
 ## Result
 
-- **Public Score**: Pending
+- The Kaggle evaluation completed successfully.
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.06
+- This score establishes the baseline for subsequent experiments.
 
-*(Evaluation is currently running on Kaggle. No score has been published yet.)*
+---
+
+## Interpretation
+
+- The purpose of Experiment 001 was to establish a reproducible measurement before optimization.
+- The score of 0.06 is now the reference comparison point for future experiments.
+- No causal conclusions about the score are being made yet.
+- Future experiments will change one primary variable at a time and compare their score against 0.06.
 
 ---
 

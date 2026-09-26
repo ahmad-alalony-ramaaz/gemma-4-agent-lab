@@ -34,13 +34,21 @@ Our experimental protocol follows a disciplined scientific cycle:
   - **`code_analyzer`**: A read-only sub-agent tasked with searching the repository, tracing call graphs, and returning a concise localization and fix plan (< 250 words) within a separate context.
   - **`swe_coder`**: The primary coordinator agent that receives the issue description, delegates initial exploration to `code_analyzer`, writes a reproduction script in `/tmp`, applies code edits, executes targeted pytest tests, and submits the final unified patch.
 
+### Current Baseline
+- **Experiment**: 001
+- **Architecture**: Analyzer + Coder
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.06
+
+The score of 0.06 is now the reference measurement against which future controlled experiments will be compared.
+
 ---
 
 ## Experiments
 
 | Experiment | Change | Public Score | Status |
 |------------|--------|--------------|--------|
-| [001](experiments/001-baseline/) | Analyzer + Coder baseline | Pending | Evaluation running |
+| [001](experiments/001-baseline/) | Analyzer + Coder baseline | 0.06 | Completed |
 | 002 | Adaptive Analyzer | — | Planned |
 | 003 | Progressive Localization | — | Planned |
 | 004 | Reviewer Agent | — | Planned |
