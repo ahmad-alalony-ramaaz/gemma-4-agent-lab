@@ -49,9 +49,12 @@ The score of 0.06 is now the reference measurement against which future controll
 | Experiment | Change | Public Score | Status |
 |------------|--------|--------------|--------|
 | [001](experiments/001-baseline/) | Analyzer + Coder baseline | 0.06 | Completed |
-| 002 | Adaptive Analyzer | — | Planned |
-| 003 | Progressive Localization | — | Planned |
-| 004 | Reviewer Agent | — | Planned |
+| [002](experiments/002-evidence-gated-verification/) | Evidence-Gated Verification | Pending | Prepared / Not Submitted |
+| 003 | Adaptive Analyzer | — | Planned |
+| 004 | Progressive Localization | — | Planned |
+| 005 | Reviewer Agent | — | Planned |
+
+> **Roadmap note (2026-09-27):** The preliminary roadmap listed Adaptive Analyzer, Progressive Localization and Reviewer Agent as Experiments 002, 003 and 004. After the Experiment 001 diagnostic audit identified a stronger evidence-backed verification gap, Evidence-Gated Verification was scheduled as Experiment 002, and the three planned experiments moved to 003, 004 and 005. The earlier roadmap was a preliminary plan that was refined once evidence became available.
 
 ---
 
@@ -66,19 +69,25 @@ gemma-4-agent-lab/
 ├── .gitignore                          # Exclusions for competition data, caches & secrets
 │
 ├── experiments/
-│   └── 001-baseline/                  # Experiment 001 (Kaggle baseline submission)
-│       ├── README.md                   # Detailed experiment 001 report & parameters
-│       ├── experiment_card.json        # Machine-readable metadata & SHA hashes
+│   ├── 001-baseline/                  # Experiment 001 (Kaggle baseline submission)
+│   │   ├── README.md                   # Detailed experiment 001 report & parameters
+│   │   ├── experiment_card.json        # Machine-readable metadata & SHA hashes
+│   │   │
+│   │   └── agent/                      # Frozen agent bundle for Experiment 001
+│   │       ├── agent.yaml              # Primary agent declaration (swe_coder)
+│   │       ├── configs/
+│   │       │   └── sampling.yaml       # Generation & thinking budget parameters
+│   │       ├── prompts/
+│   │       │   ├── system.md           # swe_coder system prompt & execution protocol
+│   │       │   └── analyzer.md         # code_analyzer specialist prompt
+│   │       └── sub_agents/
+│   │           └── code_analyzer.yaml  # code_analyzer sub-agent declaration
+│   │
+│   └── 002-evidence-gated-verification/  # Experiment 002 (prepared, not yet submitted)
+│       ├── README.md                   # Experiment 002 hypothesis, change & risks
+│       ├── experiment_card.json        # Repository-side experiment metadata
 │       │
-│       └── agent/                      # Frozen agent bundle for Experiment 001
-│           ├── agent.yaml              # Primary agent declaration (swe_coder)
-│           ├── configs/
-│           │   └── sampling.yaml       # Generation & thinking budget parameters
-│           ├── prompts/
-│           │   ├── system.md           # swe_coder system prompt & execution protocol
-│           │   └── analyzer.md         # code_analyzer specialist prompt
-│           └── sub_agents/
-│               └── code_analyzer.yaml  # code_analyzer sub-agent declaration
+│       └── agent/                      # Same layout as 001; only prompts/system.md differs
 │
 └── docs/
     ├── architecture.md                 # Baseline dual-agent architectural breakdown

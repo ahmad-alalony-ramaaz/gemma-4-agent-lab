@@ -4,6 +4,14 @@ All notable updates and experimental milestones for this project will be documen
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Experiment 002 — Evidence-Gated Verification] - 2026-09-27
+
+- Prepared Experiment 002 from the frozen Experiment 001 agent artifacts. Not yet submitted to Kaggle.
+- Changed one primary behavioral variable: verification becomes evidence-gated (three lines of `agent/prompts/system.md`).
+- Kept `agent.yaml`, `prompts/analyzer.md`, `sub_agents/code_analyzer.yaml` and `configs/sampling.yaml` byte-for-byte identical to Experiment 001.
+- Refined the roadmap after the Experiment 001 diagnostic audit identified a stronger evidence-backed verification gap. Evidence-Gated Verification is now Experiment 002. Adaptive Analyzer, Progressive Localization and Reviewer Agent move to 003, 004 and 005. The earlier roadmap was a preliminary plan that was refined once evidence became available.
+- Public Score: Pending.
+
 ## [Experiment 001 — Baseline] - 2026-09-25
 
 - Established initial Analyzer + Coder architecture.
