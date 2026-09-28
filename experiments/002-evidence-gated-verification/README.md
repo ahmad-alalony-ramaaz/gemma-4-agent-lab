@@ -5,7 +5,12 @@
 
 ## Status
 
-Prepared — not yet submitted to Kaggle.
+Completed
+
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.08
+- **Baseline Public Score**: 0.06
+- **Observed Delta**: +0.02
 
 ## Baseline
 
@@ -92,29 +97,41 @@ No numeric significance threshold is defined, because run-to-run variance is unk
 
 ## Result
 
-Kaggle Public Score: Pending
+- The Kaggle evaluation completed successfully.
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.08
+- **Baseline Public Score (Experiment 001)**: 0.06
+- **Observed Delta**: +0.02
 
-The submission description, bundle SHA256, score delta, observations and decision will be recorded after the official evaluation completes.
+This is a positive observed signal. The observed Public Score increased from 0.06 to 0.08.
 
 ## Kaggle Submission Description
 
-Pending. Nothing has been submitted. A local candidate `submission.zip` has been built from the contents of `agent/`. It has not been checked by the official validator. Its details are recorded in `experiment_card.json` under `candidate_bundle`.
+Experiment 002 - Evidence-Gated Verification
+
+The SHA-256 of the bundle accepted by Kaggle and the submission timestamp were not recorded. The Kaggle notebook rebuilds the archive, so the accepted bundle may have a different hash from the local candidate `submission.zip`. The details in `experiment_card.json` under `candidate_bundle` describe the local candidate build only.
 
 ## Difference from Previous Experiment
 
-- **Public Score delta**: Pending.
-- **Behavioral difference**: the three-line verification change described under What Changed. No behavioral observations exist yet.
+- **Public Score delta**: +0.02 observed (0.06 to 0.08).
+- **Behavioral difference**: the three-line verification change described under What Changed. Per-task results from the hidden evaluation are not available, so no behavioral observations are recorded.
 
 ## Observations
 
-- Experiment prepared.
-- No run has been executed, so there are no observations on turn count, execution time, localization accuracy, failure modes or budget consumption.
-- Result pending.
+- Only the intended evidence-gated verification behavior changed.
+- Model, architecture, analyzer, sampling, tools and localization strategy remained constant according to the experiment design.
+- The observed Public Score increased from 0.06 to 0.08.
+- Run-to-run variance remains unknown. Only one scored run exists for each experiment.
+- Per-task results from the hidden evaluation are not available, so there are no observations on turn count, execution time, localization accuracy, failure modes or budget consumption.
 
 ## Decision
 
-Submit to Kaggle and wait for measurement before drawing conclusions.
+The result is consistent with the Experiment 002 hypothesis and is worth retaining as the current best measured configuration. Because run-to-run variance is unknown and only one scored run exists for each experiment, no strong causal conclusion is drawn from the +0.02 difference.
+
+Experiment 002 is closed.
 
 ## Next Experiment
 
-Not yet decided. The roadmap lists Adaptive Analyzer as Experiment 003. The choice will be confirmed after the Experiment 002 result is recorded.
+Not yet started.
+
+The roadmap lists Adaptive Analyzer as the next planned candidate (Experiment 003). Its final design has not been selected or implemented.

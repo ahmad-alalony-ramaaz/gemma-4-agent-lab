@@ -12,7 +12,7 @@ This document tracks public benchmark evaluations for all agent configurations s
 | Exp ID | Experiment Name | Primary Mutation / Architecture | Submitted (UTC) | Public Score | Delta | Status |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|
 | **001** | [Baseline (Analyzer + Coder)](../experiments/001-baseline/) | Analyzer + Coder baseline | 2026-09-25 20:14 | **0.06** | Baseline | Completed |
-| **002** | [Evidence-Gated Verification](../experiments/002-evidence-gated-verification/) | Verification becomes evidence-gated | — | Pending | — | Prepared / Not Submitted |
+| **002** | [Evidence-Gated Verification](../experiments/002-evidence-gated-verification/) | Verification becomes evidence-gated | Not recorded | **0.08** | +0.02 | Completed |
 | *003* | *Adaptive Analyzer* | *Dynamic analyzer gating based on issue specificity* | — | — | — | Planned |
 | *004* | *Progressive Localization* | *Hierarchical multi-stage localization pipeline* | — | — | — | Planned |
 | *005* | *Reviewer Agent* | *Independent post-edit validation and review agent* | — | — | — | Planned |
@@ -44,14 +44,18 @@ This document tracks public benchmark evaluations for all agent configurations s
 - **Architecture**: Analyzer + Coder (unchanged from Experiment 001)
 - **Single Primary Change**: Verification becomes evidence-gated (three lines of `agent/prompts/system.md`)
 - **Prompt SHA-256 Prefix**: `614e4ead2122` (Experiment 001: `d51393ea9c3f`)
-- **Submission Description**: Pending
-- **Submission Bundle SHA256**: Pending (local candidate built; not yet validated or submitted)
-- **Submission Date**: Pending
-- **Kaggle Submission Status**: Not submitted
-- **Public Score**: Pending
-- **Delta**: Pending
-- **Status**: Prepared / Not Submitted
-- **Notes**: Prepared from the frozen Experiment 001 agent artifacts. `agent.yaml`, `prompts/analyzer.md`, `sub_agents/code_analyzer.yaml` and `configs/sampling.yaml` are byte-for-byte identical to Experiment 001. No score has been recorded.
+- **Hypothesis**: Evidence-gated verification may reduce submission of edits that the agent has observed still failing.
+- **Submission Description**: Experiment 002 - Evidence-Gated Verification
+- **Submission Bundle SHA256**: Not recorded. The hash of the bundle accepted by Kaggle is unknown and may differ from the local candidate bundle recorded in `experiment_card.json` under `candidate_bundle`.
+- **Submission Date**: Not recorded
+- **Kaggle Submission Status**: Succeeded
+- **Result (Public Score)**: 0.08
+- **Baseline**: 0.06 (Experiment 001)
+- **Observed Delta**: +0.02
+- **Status**: Completed
+- **Interpretation**: Positive observed signal, consistent with the hypothesis, but not sufficient to establish causality because run-to-run variance is unknown.
+- **Decision**: Retain Experiment 002 as the highest observed configuration so far and close the experiment. Do not start the next experiment until its hypothesis is selected separately.
+- **Notes**: Prepared from the frozen Experiment 001 agent artifacts. `agent.yaml`, `prompts/analyzer.md`, `sub_agents/code_analyzer.yaml` and `configs/sampling.yaml` are byte-for-byte identical to Experiment 001. Only one scored run exists for each experiment. No per-task conclusions are drawn from the hidden evaluation.
 
 ---
 

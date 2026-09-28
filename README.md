@@ -34,13 +34,31 @@ Our experimental protocol follows a disciplined scientific cycle:
   - **`code_analyzer`**: A read-only sub-agent tasked with searching the repository, tracing call graphs, and returning a concise localization and fix plan (< 250 words) within a separate context.
   - **`swe_coder`**: The primary coordinator agent that receives the issue description, delegates initial exploration to `code_analyzer`, writes a reproduction script in `/tmp`, applies code edits, executes targeted pytest tests, and submits the final unified patch.
 
-### Current Baseline
+### Original Baseline
 - **Experiment**: 001
 - **Architecture**: Analyzer + Coder
 - **Kaggle submission status**: Succeeded
 - **Public Score**: 0.06
 
-The score of 0.06 is now the reference measurement against which future controlled experiments will be compared.
+The score of 0.06 remains the original reference measurement against which controlled experiments are compared.
+
+### Current Highest Observed Result
+- **Experiment**: 002 — Evidence-Gated Verification
+- **Architecture**: Analyzer + Coder (unchanged)
+- **Kaggle submission status**: Succeeded
+- **Public Score**: 0.08
+
+```text
+Experiment 001   Analyzer + Coder   0.06
+        ↓
+Evidence-Gated Verification
+        ↓
+Experiment 002                      0.08
+
+Observed delta: +0.02
+```
+
+This is a positive observed signal. It is not causal proof, because repeated-run variance is unknown and only one scored run exists for each experiment.
 
 ---
 
@@ -48,8 +66,8 @@ The score of 0.06 is now the reference measurement against which future controll
 
 | Experiment | Change | Public Score | Status |
 |------------|--------|--------------|--------|
-| [001](experiments/001-baseline/) | Analyzer + Coder baseline | 0.06 | Completed |
-| [002](experiments/002-evidence-gated-verification/) | Evidence-Gated Verification | Pending | Prepared / Not Submitted |
+| [001](experiments/001-baseline/) | Analyzer + Coder Baseline | 0.06 | Completed |
+| [002](experiments/002-evidence-gated-verification/) | Evidence-Gated Verification | 0.08 | Completed |
 | 003 | Adaptive Analyzer | — | Planned |
 | 004 | Progressive Localization | — | Planned |
 | 005 | Reviewer Agent | — | Planned |
@@ -83,7 +101,7 @@ gemma-4-agent-lab/
 │   │       └── sub_agents/
 │   │           └── code_analyzer.yaml  # code_analyzer sub-agent declaration
 │   │
-│   └── 002-evidence-gated-verification/  # Experiment 002 (prepared, not yet submitted)
+│   └── 002-evidence-gated-verification/  # Experiment 002 (completed, Public Score 0.08)
 │       ├── README.md                   # Experiment 002 hypothesis, change & risks
 │       ├── experiment_card.json        # Repository-side experiment metadata
 │       │

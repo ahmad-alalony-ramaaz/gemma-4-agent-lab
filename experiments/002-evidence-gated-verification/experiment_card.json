@@ -1,9 +1,12 @@
 {
   "experiment_id": "002",
   "name": "Evidence-Gated Verification",
-  "status": "Prepared / Not Submitted",
+  "status": "Completed",
+  "kaggle_submission_status": "Succeeded",
+  "public_score": 0.08,
   "baseline_experiment": "001",
   "baseline_public_score": 0.06,
+  "observed_delta": 0.02,
   "hypothesis": "If verification becomes evidence-gated while localization, architecture, model, tools, analyzer behavior, and sampling remain unchanged, then the agent may submit a higher proportion of correct patches because edits that are observed still failing will not be treated as verified fixes.",
   "independent_variable": "Evidence-gated verification behavior.",
   "constants": [
