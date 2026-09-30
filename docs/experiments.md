@@ -77,6 +77,22 @@ Alongside the human-readable `README.md`, each experiment folder must contain an
 }
 ```
 
+### Extended card fields (Experiment 002 onward)
+
+Cards for controlled experiments add the following fields to the base template above:
+
+| Field | Purpose |
+|:---|:---|
+| `experiment_id`, `name`, `status` | Identity and lifecycle state (`Prepared / Not Submitted`, then `Completed`) |
+| `baseline_experiment`, `baseline_public_score` | The control the experiment is compared against |
+| `original_baseline_experiment`, `original_baseline_public_score` | Experiment 001, when the control is a later experiment (first used in Experiment 003) |
+| `hypothesis`, `independent_variable`, `constants`, `files_changed` | The experiment design |
+| `bundle_base` | The experiment folder the agent bundle was copied from |
+| `constant_file_sha256` | SHA-256 of every agent file held byte-for-byte identical to the control |
+| `baseline_prompt_sha` | Prompt SHA prefix of the control |
+| `sampling_sha256`, `baseline_sampling_sha256` | SHA-256 of `configs/sampling.yaml` and of the control's copy, when the changed file is the sampling configuration rather than a prompt (first used in Experiment 003) |
+| `public_score`, `observed_delta`, `kaggle_submission_status` | Added only after the official result is recorded |
+
 ---
 
 ## 4. Lifecycle of an Experiment

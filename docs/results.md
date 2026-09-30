@@ -13,15 +13,19 @@ This document tracks public benchmark evaluations for all agent configurations s
 |:---:|:---|:---|:---:|:---:|:---:|:---:|
 | **001** | [Baseline (Analyzer + Coder)](../experiments/001-baseline/) | Analyzer + Coder baseline | 2026-09-25 20:14 | **0.06** | Baseline | Completed |
 | **002** | [Evidence-Gated Verification](../experiments/002-evidence-gated-verification/) | Verification becomes evidence-gated | Not recorded | **0.08** | +0.02 | Completed |
-| *003* | *Adaptive Analyzer* | *Dynamic analyzer gating based on issue specificity* | — | — | — | Planned |
-| *004* | *Progressive Localization* | *Hierarchical multi-stage localization pipeline* | — | — | — | Planned |
-| *005* | *Reviewer Agent* | *Independent post-edit validation and review agent* | — | — | — | Planned |
+| **003** | [Reclaim Output Headroom](../experiments/003-reclaim-output-headroom/) | `max_output_tokens` reduced from 8192 to 4096 | — | Pending | — | Prepared / Not Submitted |
+| *004* | *Adaptive Analyzer* | *Dynamic analyzer gating based on issue specificity* | — | — | — | Planned |
+| *005* | *Progressive Localization* | *Hierarchical multi-stage localization pipeline* | — | — | — | Planned |
+| *006* | *Reviewer Agent* | *Independent post-edit validation and review agent* | — | — | — | Planned |
 
 > [!NOTE]
 > Experiment 001 defines the initial baseline. Score deltas for subsequent experiments will be measured relative to 0.06 and/or the immediately preceding experiment, depending on the experiment design.
 
 > [!NOTE]
 > **Roadmap note (2026-09-27):** The preliminary roadmap listed Adaptive Analyzer, Progressive Localization and Reviewer Agent as Experiments 002, 003 and 004. After the Experiment 001 diagnostic audit identified a stronger evidence-backed verification gap, Evidence-Gated Verification was scheduled as Experiment 002, and the three planned experiments moved to 003, 004 and 005. The earlier roadmap was a preliminary plan that was refined once evidence became available.
+
+> [!NOTE]
+> **Roadmap note (2026-09-30):** After Experiment 002, a harness-source investigation indicated that the `max_output_tokens` reserve may reduce available input headroom. Reclaim Output Headroom was scheduled as Experiment 003, and the three planned experiments moved to 004, 005 and 006. They remain preliminary candidates whose order and design have not been selected.
 
 ---
 
@@ -56,6 +60,23 @@ This document tracks public benchmark evaluations for all agent configurations s
 - **Interpretation**: Positive observed signal, consistent with the hypothesis, but not sufficient to establish causality because run-to-run variance is unknown.
 - **Decision**: Retain Experiment 002 as the highest observed configuration so far and close the experiment. Do not start the next experiment until its hypothesis is selected separately.
 - **Notes**: Prepared from the frozen Experiment 001 agent artifacts. `agent.yaml`, `prompts/analyzer.md`, `sub_agents/code_analyzer.yaml` and `configs/sampling.yaml` are byte-for-byte identical to Experiment 001. Only one scored run exists for each experiment. No per-task conclusions are drawn from the hidden evaluation.
+
+### Experiment 003: Reclaim Output Headroom
+- **Model**: `gemma-4-31b-it-qat-w4a16-ct`
+- **Architecture**: Analyzer + Coder (unchanged from Experiment 002)
+- **Single Primary Change**: `max_output_tokens` reduced from 8192 to 4096 (one line of `agent/configs/sampling.yaml`)
+- **Sampling Config SHA-256 Prefix**: `048036d1c887` (Experiment 002: `ac857a0e8f76`)
+- **Prompt SHA-256 Prefix**: `614e4ead2122` (unchanged from Experiment 002)
+- **Control**: Experiment 002 (Public Score 0.08). Original baseline: Experiment 001 (0.06).
+- **Hypothesis**: Reducing the output reserve may allow some long-running tasks to avoid context overflow and reach patch submission.
+- **Submission Description**: Pending
+- **Submission Bundle SHA256**: Pending (no archive built in the repository; not yet validated or submitted)
+- **Submission Date**: Pending
+- **Kaggle Submission Status**: Not submitted
+- **Public Score**: Pending
+- **Delta**: Pending
+- **Status**: Prepared / Not Submitted
+- **Notes**: Prepared from the frozen Experiment 002 agent artifacts. `agent.yaml`, `prompts/system.md`, `prompts/analyzer.md` and `sub_agents/code_analyzer.yaml` are byte-for-byte identical to Experiment 002. The hypothesis rests on a harness-source investigation and is not verified on hidden tasks. No score has been recorded.
 
 ---
 

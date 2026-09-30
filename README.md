@@ -68,11 +68,14 @@ This is a positive observed signal. It is not causal proof, because repeated-run
 |------------|--------|--------------|--------|
 | [001](experiments/001-baseline/) | Analyzer + Coder Baseline | 0.06 | Completed |
 | [002](experiments/002-evidence-gated-verification/) | Evidence-Gated Verification | 0.08 | Completed |
-| 003 | Adaptive Analyzer | — | Planned |
-| 004 | Progressive Localization | — | Planned |
-| 005 | Reviewer Agent | — | Planned |
+| [003](experiments/003-reclaim-output-headroom/) | Reclaim Output Headroom | Pending | Prepared / Not Submitted |
+| 004 | Adaptive Analyzer | — | Planned |
+| 005 | Progressive Localization | — | Planned |
+| 006 | Reviewer Agent | — | Planned |
 
 > **Roadmap note (2026-09-27):** The preliminary roadmap listed Adaptive Analyzer, Progressive Localization and Reviewer Agent as Experiments 002, 003 and 004. After the Experiment 001 diagnostic audit identified a stronger evidence-backed verification gap, Evidence-Gated Verification was scheduled as Experiment 002, and the three planned experiments moved to 003, 004 and 005. The earlier roadmap was a preliminary plan that was refined once evidence became available.
+
+> **Roadmap note (2026-09-30):** After Experiment 002, a harness-source investigation indicated that the `max_output_tokens` reserve may reduce available input headroom. Reclaim Output Headroom was scheduled as Experiment 003, and the three planned experiments moved to 004, 005 and 006. They remain preliminary candidates whose order and design have not been selected.
 
 ---
 
@@ -101,11 +104,17 @@ gemma-4-agent-lab/
 │   │       └── sub_agents/
 │   │           └── code_analyzer.yaml  # code_analyzer sub-agent declaration
 │   │
-│   └── 002-evidence-gated-verification/  # Experiment 002 (completed, Public Score 0.08)
-│       ├── README.md                   # Experiment 002 hypothesis, change & risks
+│   ├── 002-evidence-gated-verification/  # Experiment 002 (completed, Public Score 0.08)
+│   │   ├── README.md                   # Experiment 002 hypothesis, change & risks
+│   │   ├── experiment_card.json        # Repository-side experiment metadata
+│   │   │
+│   │   └── agent/                      # Same layout as 001; only prompts/system.md differs
+│   │
+│   └── 003-reclaim-output-headroom/    # Experiment 003 (prepared, not yet submitted)
+│       ├── README.md                   # Experiment 003 hypothesis, change & limitations
 │       ├── experiment_card.json        # Repository-side experiment metadata
 │       │
-│       └── agent/                      # Same layout as 001; only prompts/system.md differs
+│       └── agent/                      # Same layout as 002; only configs/sampling.yaml differs
 │
 └── docs/
     ├── architecture.md                 # Baseline dual-agent architectural breakdown

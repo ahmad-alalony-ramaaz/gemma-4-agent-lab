@@ -1,0 +1,63 @@
+{
+  "experiment_id": "003",
+  "name": "Reclaim Output Headroom",
+  "status": "Prepared / Not Submitted",
+  "baseline_experiment": "002",
+  "baseline_public_score": 0.08,
+  "original_baseline_experiment": "001",
+  "original_baseline_public_score": 0.06,
+  "hypothesis": "If the output-token reserve is reduced from 8192 to 4096 while the rest of the Experiment 002 configuration remains unchanged, some long-running tasks may avoid fatal context overflow and reach patch submission.",
+  "independent_variable": "max_output_tokens: 8192 -> 4096",
+  "constants": [
+    "Analyzer + Coder architecture",
+    "model",
+    "coder prompt",
+    "analyzer prompt",
+    "analyzer configuration",
+    "tools",
+    "temperature",
+    "top_p",
+    "top_k",
+    "thinking_budget",
+    "include_thoughts"
+  ],
+  "files_changed": [
+    "agent/configs/sampling.yaml"
+  ],
+  "created_utc": "2026-09-30T08:06:38+00:00",
+  "zip": null,
+  "sha256": null,
+  "architecture": "analyzer+coder",
+  "bundle_base": "002-evidence-gated-verification",
+  "model_alias": "gemma-4-31b-it-qat-w4a16-ct",
+  "tools": [
+    "run_command",
+    "submit_patch",
+    "get_status",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "search_similar_code",
+    "get_code_neighbors",
+    "get_code_subgraph"
+  ],
+  "context_limit": 32768,
+  "sampling": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 4096,
+    "thinking_budget": 4096
+  },
+  "prompt_sha": "614e4ead2122",
+  "baseline_prompt_sha": "614e4ead2122",
+  "sampling_sha256": "048036d1c8875a28b6c2962f96d7d4b80319bb2fb3c8cdeb43e3f852cd3738cb",
+  "baseline_sampling_sha256": "ac857a0e8f76e01bfb7de0dcfb1d7d68d256ba1537109050127cf75476ee5012",
+  "constant_file_sha256": {
+    "agent/agent.yaml": "c8f4305df8091c679985b610d3e5195e12703c5989f61230939a938ef6afb2e4",
+    "agent/prompts/system.md": "614e4ead212287c07c40bc7f80834bd4f32fae4cd3b06b8224fc39f0c15a0e4b",
+    "agent/prompts/analyzer.md": "3eb7a6eafba9f6d2d2d74b92822ed0715ebb6188202c41c53765b946392a02d5",
+    "agent/sub_agents/code_analyzer.yaml": "07530d7f65c9654c3f074924cba10fb3e1fd22115885c3a948decc47fb055fc3"
+  },
+  "validation_passed": null
+}

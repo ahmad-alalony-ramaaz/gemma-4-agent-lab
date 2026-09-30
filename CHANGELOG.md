@@ -4,6 +4,16 @@ All notable updates and experimental milestones for this project will be documen
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Experiment 003 — Reclaim Output Headroom] - 2026-09-30
+
+- Prepared Experiment 003 from the frozen Experiment 002 agent artifacts. Not yet submitted to Kaggle.
+- Changed one primary configuration variable: `max_output_tokens` reduced from 8192 to 4096 (one line of `agent/configs/sampling.yaml`).
+- Kept `agent.yaml`, `prompts/system.md`, `prompts/analyzer.md` and `sub_agents/code_analyzer.yaml` byte-for-byte identical to Experiment 002.
+- Hypothesis: a harness-source investigation indicates that `max_output_tokens` participates in the context-window request limit, so a smaller output reserve may allow some long-running tasks to avoid context overflow and reach patch submission. This is not verified on hidden tasks.
+- Refined the roadmap. Reclaim Output Headroom is now Experiment 003. Adaptive Analyzer, Progressive Localization and Reviewer Agent move to 004, 005 and 006 and remain preliminary candidates.
+- Control: Experiment 002 (Public Score 0.08). Original baseline: Experiment 001 (0.06).
+- Public Score: Pending.
+
 ## [Experiment 002 — Evidence-Gated Verification] - 2026-09-27
 
 - Prepared Experiment 002 from the frozen Experiment 001 agent artifacts.
